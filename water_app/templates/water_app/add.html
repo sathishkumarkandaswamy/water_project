@@ -1,0 +1,32 @@
+{% extends "water_app/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %} <title>Water Project | Add</title>{% endblock %}
+{% block body %}
+{% if message %}
+<h2>Add Water details</h2>
+	{% if 'fail' in  message%}
+   		<div class="alert alert-danger" role="alert">
+   			<button type="button" class="close" data-dismiss="alert">×</button>
+    		{{ message }} - Please fix errors, refer highled error in red font.
+		</div>
+    {% else %}
+   		<div class="alert alert-success" role="alert">
+    		<button type="button" class="close" data-dismiss="alert">×</button>
+    			{{ message }}
+  		</div>
+	{% endif %}
+{% elif form.errors %}
+	<div class="alert alert-danger" role="alert">
+   		<button type="button" class="close" data-dismiss="alert">×</button>
+    	Please fix errors, refer error text.
+	</div>
+{% endif %}
+
+      <form action={% url "water_add" %} method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="Submit">
+      </form>
+{% endblock body %}
