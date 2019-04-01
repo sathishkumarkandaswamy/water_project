@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from water_app.forms import WaterParameterForm
+from water_app.models import WaterParameter
 
 
 def index(request):
     data = 'Dashboard'
-    return render(request, 'water_app/index.html', {'data': data})
+    sample_list = WaterParameter.objects.values('id', 'title')
+
+    return render(request, 'water_app/index.html', {'data': data, 'sample_list': sample_list})
 
 def water_add(request):
     '''
@@ -26,3 +29,17 @@ def water_add(request):
         form = WaterParameterForm()
 
     return render(request, page, {'form':form, 'message': message} )
+
+
+def dashboard(request, sample_id=None):
+    '''
+    Dashboard
+    '''
+    page = 'water_app/dashboard.html'
+    message = ""
+    data = ""
+
+    print(sample_id)
+    data = WaterParameter.objects.get(id=sample_id)
+
+    return render(request, page, {'data': data})
