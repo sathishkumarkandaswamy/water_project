@@ -5,10 +5,26 @@
 {% block title %} <title>Water Project | Home</title>{% endblock %}
 {% block body %}
   <h1>{{data}}</h1>
-  {% for record in sample_list %}
-      <div class="">
-        <a href={% url 'dashboard' sample_id=record.id %}><strong><u>{{ record.title | truncatechars:50 }}</u></strong></a>
-      </div>
-  {% endfor %}
+  <div class="container">
+      <div class="row">
+            {% for record in sample_list %}
 
+                  <div class="col col-lg-4">
+                            <div class="card">
+                              <div class="card-header">
+                                <a href={% url 'dashboard' sample_id=record.id %}>
+                                      <strong>Dashboard: <u>{{ record.title | truncatechars:50 }}</u>
+                                      </strong>
+                                </a>
+                              </div>
+                              <div class="card-body">
+                                <h5 class="card-title">{{record.description}}</h5>
+                                <p class="card-text"></p>
+                                <a href="#" class="btn btn-primary">Launch SWaP</a>
+                              </div>
+                            </div>
+                   </div>
+            {% endfor %}
+</div>
+</div>
 {% endblock body %}

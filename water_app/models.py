@@ -8,7 +8,7 @@ class WaterParameter(models.Model):
 
     title = models.CharField(max_length=1024, unique=True, null=True, blank=True)
     description = models.CharField(max_length=1024, null=True, blank=True)
-    coliform_bacteria = models.FloatField('Coliform Bacteria', null=True,  blank=True)
+    coliform_bacteria = models.FloatField(verbose_name='Coliform Bacteria', null=True,  blank=True)
     nitrate = models.FloatField('Nitrate', null=True,  blank=True)
     ph = models.FloatField('pH', null=True,  blank=True)
     sodium = models.FloatField('Sodium', null=True,  blank=True)

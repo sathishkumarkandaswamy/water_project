@@ -4,8 +4,8 @@ from water_app.models import WaterParameter
 
 
 def index(request):
-    data = 'Dashboard'
-    sample_list = WaterParameter.objects.values('id', 'title')
+    data = 'Samples'
+    sample_list = WaterParameter.objects.values('id', 'title', 'description')
 
     return render(request, 'water_app/index.html', {'data': data, 'sample_list': sample_list})
 

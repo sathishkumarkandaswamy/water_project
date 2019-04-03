@@ -4,10 +4,46 @@
 
 {% block title %} <title>Water Project | Dashboard</title>{% endblock %}
 {% block body %}
-  <h1>{{data.title}}</h1>
-  <h2>{{data.description}}</h2>
+    <div class="container">
+        <div class="row">
+          <div class="col col-lg-12">
+            <h1>Sample: {{data.title}}</h1>
+            <h2>Description: {{data.description}}</h2>
+          </div>
+              <div class="col col-lg-3 border">
+                <p class="bg-success">Coliform Bacteria</p>
+                <p>{{data.coliform_bacteria }}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-success">Nitrate</p>
+                  <p>{{data.nitrate  }}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-success">pH</p>
+                  <p> {{data.ph }}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-success">Sodium </p>
+                  <p> {{data.sodium }}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-info">Chloride</p>
+                  <p> {{data.chloride}}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-danger">Fluride</p>
+                  <p> {{data.fluride}}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-success">Sulphate</p>
+                  <p> {{data.sulphate}}</p>
+              </div>
+              <div class="col col-lg-3 border">
+                  <p class="bg-success">Iron</p>
+                  <p> {{data.iron}}</p>
+              </div>
+              <a href="#" class="btn btn-primary">Launch SWaP</a>
+        </div>
+    </div>
 
-  Chart...
-
-  
   {% endblock body %}
